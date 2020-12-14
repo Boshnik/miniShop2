@@ -1,6 +1,9 @@
 <?php
 /** @var modX $modx */
 /** @var array $scriptProperties */
+/** @var miniShop2 $miniShop2 */
+$miniShop2 = $modx->getService('miniShop2');
+
 $tpl = $modx->getOption('tpl', $scriptProperties, 'tpl.msOptions');
 if (!empty($input) && empty($product)) {
     $product = $input;
@@ -23,11 +26,13 @@ foreach ($names as $name) {
         if (!is_array($option)) {
             $option = array($option);
         }
-        if (!empty($option[0])) {
+        if (isset($option[0]) and (trim($option[0]) != '')) {
             $options[$name] = $option;
         }
     }
 }
+
+$options = $miniShop2->sortOptionValues($options, $scriptProperties['sortOptionValues']);
 
 /** @var pdoTools $pdoTools */
 $pdoTools = $modx->getService('pdoTools');

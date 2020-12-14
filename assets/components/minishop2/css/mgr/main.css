@@ -27,7 +27,8 @@ a.link, a.ms2-link { color: #005580; }
 .minishop2-grid .x-grid-group-hd div.x-grid-group-title { padding: 8px 4px 12px 5px; }
 .minishop2-row-unpublished div,
 .minishop2-row-unpublished span,
-.minishop2-row-unpublished a {
+.minishop2-row-unpublished a,
+.minishop2-row-inactive div {
     font-style: italic;
     color: #aaa !important;
 }
@@ -38,15 +39,20 @@ a.link, a.ms2-link { color: #005580; }
     text-decoration: line-through !important;
 }
 .minishop2-row-unpublished img,
-.minishop2-row-deleted img {
+.minishop2-row-deleted img,
+.minishop2-row-inactive img,
+.minishop2-row-unpublished .minishop2-row-actions,
+.minishop2-row-deleted .minishop2-row-actions,
+.minishop2-row-inactive .minishop2-row-actions {
     opacity: .5;
-}
-.minishop2-row-inactive div {
-    font-style: italic;
-    color: #aaa !important;
 }
 .minishop2-row-required div {
     font-weight: bold;
+}
+.minishop2-row-badge {
+    padding: 4px 10px;
+    border-radius: 3px;
+    background-color: #cacaca;
 }
 .tbar-checkbox { text-align: left; }
 .tbar-checkbox label { padding: 2px 0 0 22px !important; line-height: normal; }
@@ -86,7 +92,7 @@ a.x-menu-item .x-menu-item-text .icon { line-height: 16px; top: auto; }
 /* Windows */
 .minishop2-window .x-form-label-top .x-form-item label.x-form-item-label { padding-top: 15px !important; }
 .minishop2-window .x-panel-mc,
-.minishop2-window .x-tab-panel-bwrap > .x-tab-panel-body > .x-panel { margin-top: -15px; }
+.minishop2-window .x-tab-panel-bwrap > .x-tab-panel-body > .x-panel { margin-top: -14px; }
 .minishop2-window .x-window-body.tabs { padding: 5px 10px 0 10px; }
 .minishop2-window .desc { font-style: italic; padding-top: 5px; color: #555555; }
 /* Tree */

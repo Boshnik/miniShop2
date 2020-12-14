@@ -37,6 +37,11 @@ $tmp = array(
         'xtype' => 'textarea',
         'area' => 'ms2_main',
     ),
+    'ms2_chunks_categories' => array(
+        'value' => '',
+        'xtype' => 'textfield',
+        'area' => 'ms2_main',
+    ),
 
     'ms2_category_grid_fields' => array(
         'value' => 'id,menuindex,pagetitle,article,price,thumb,new,favorite,popular',
@@ -204,7 +209,22 @@ $tmp = array(
         'xtype' => 'textfield',
         'area' => 'ms2_cart',
     ),
+    'ms2_cart_context' => array(
+        'value' => '',
+        'xtype' => 'combo-boolean',
+        'area' => 'ms2_cart',
+    ),
 
+    'ms2_order_format_num' => array(
+        'value' => '%y%m',
+        'xtype' => 'textfield',
+        'area' => 'ms2_order',
+    ),
+    'ms2_order_format_num_separator' => array(
+        'value' => '/',
+        'xtype' => 'textfield',
+        'area' => 'ms2_order',
+    ),
     'ms2_order_grid_fields' => array(
         'value' => 'id,num,customer,status,cost,weight,delivery,payment,createdon,updatedon,comment',
         'xtype' => 'textarea',
@@ -218,6 +238,11 @@ $tmp = array(
     'ms2_order_product_fields' => array(
         'xtype' => 'textarea',
         'value' => 'product_pagetitle,product_article,weight,price,count,cost',
+        'area' => 'ms2_order',
+    ),
+    'ms2_order_product_options' => array(
+        'xtype' => 'textarea',
+        'value' => 'size,color',
         'area' => 'ms2_order',
     ),
 

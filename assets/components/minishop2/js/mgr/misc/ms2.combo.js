@@ -283,6 +283,14 @@ Ext.reg('minishop2-combo-source', miniShop2.combo.Source);
 
 miniShop2.combo.Options = function (config) {
     config = config || {};
+
+    if (config.mode == 'remote') {
+        Ext.applyIf(config, {
+            pageSize: 10,
+            paging: true,
+        });
+    }
+
     Ext.applyIf(config, {
         xtype: 'superboxselect',
         allowBlank: true,
@@ -296,7 +304,6 @@ miniShop2.combo.Options = function (config) {
         name: config.name || 'tags',
         anchor: '100%',
         minChars: 1,
-        pageSize: 10,
         store: new Ext.data.JsonStore({
             id: (config.name || 'tags') + '-store',
             root: 'results',
@@ -518,7 +525,18 @@ miniShop2.combo.Chunk = function (config) {
         baseParams: {
             action: 'mgr/system/element/chunk/getlist',
             mode: 'chunks'
-        }
+        },
+        tpl: new Ext.XTemplate('\
+            <tpl for=".">\
+                <div class="x-combo-list-item">\
+                    <span>\
+                        <small>({id})</small>\
+                        <b>{name}</b>\
+                    </span>\
+                </div>\
+            </tpl>',
+            {compiled: true}
+        ),
     });
     miniShop2.combo.Chunk.superclass.constructor.call(this, config);
 };
@@ -921,3 +939,36 @@ miniShop2.combo.Classes = function (config) {
 };
 Ext.extend(miniShop2.combo.Classes, miniShop2.combo.ComboBoxDefault);
 Ext.reg('minishop2-combo-classes', miniShop2.combo.Classes);
+
+
+miniShop2.combo.ModCategory = function (config) {
+    config = config || {};
+
+    Ext.applyIf(config, {
+        name: config.name || 'modcategory',
+        hiddenName: config.name || 'modcategory',
+        displayField: 'category',
+        valueField: 'id',
+        anchor: '99%',
+        fields: ['category', 'id'],
+        pageSize: 20,
+        url: miniShop2.config['connector_url'],
+        typeAhead: false,
+        editable: false,
+        allowBlank: true,
+        emptyText: _('category'),
+        baseParams: {
+            action: 'mgr/settings/option/getcategories',
+            combo: true,
+            id: config.value,
+        }
+    });
+    miniShop2.combo.ModCategory.superclass.constructor.call(this, config);
+    this.on('expand', function () {
+        if (!!this.pageTb && this.pageSize < this.getStore().totalLength) {
+            this.pageTb.show();
+        }
+    });
+};
+Ext.extend(miniShop2.combo.ModCategory, miniShop2.combo.ComboBoxDefault);
+Ext.reg('minishop2-combo-modcategory', miniShop2.combo.ModCategory);

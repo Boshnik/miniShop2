@@ -235,11 +235,13 @@
         setup: function () {
             miniShop2.Cart.cart = '#msCart';
             miniShop2.Cart.miniCart = '#msMiniCart';
+            miniShop2.Cart.miniCartClass = '.msMiniCart';
             miniShop2.Cart.miniCartNotEmptyClass = 'full';
             miniShop2.Cart.countInput = 'input[name=count]';
             miniShop2.Cart.totalWeight = '.ms2_total_weight';
             miniShop2.Cart.totalCount = '.ms2_total_count';
             miniShop2.Cart.totalCost = '.ms2_total_cost';
+            miniShop2.Cart.totalDiscount = '.ms2_total_discount';
             miniShop2.Cart.cost = '.ms2_cost';
         },
         initialize: function () {
@@ -287,13 +289,18 @@
             }
             else {
                 //var $cart = $(miniShop2.Cart.cart);
-                var $miniCart = $(miniShop2.Cart.miniCart);
-                if (status['total_count'] > 0 && !$miniCart.hasClass(miniShop2.Cart.miniCartNotEmptyClass)) {
-                    $miniCart.addClass(miniShop2.Cart.miniCartNotEmptyClass);
+                var $miniCarts = $(miniShop2.Cart.miniCart).add(miniShop2.Cart.miniCartClass);
+                if (status['total_count'] > 0 && $miniCarts.length > 0) {
+                    $miniCarts.each((index,cart) => {
+                        if (!$(cart).hasClass(miniShop2.Cart.miniCartNotEmptyClass)) {
+                            $(cart).addClass(miniShop2.Cart.miniCartNotEmptyClass);
+                        }
+                    });
                 }
                 $(miniShop2.Cart.totalWeight).text(miniShop2.Utils.formatWeight(status['total_weight']));
                 $(miniShop2.Cart.totalCount).text(status['total_count']);
                 $(miniShop2.Cart.totalCost).text(miniShop2.Utils.formatPrice(status['total_cost']));
+                $(miniShop2.Cart.totalDiscount).text(miniShop2.Utils.formatPrice(status['total_discount']));
                 if (status['cost'] > 0) {
                     $(miniShop2.Cart.cost, '#' + status['key']).text(miniShop2.Utils.formatPrice(status['cost']));
                 }

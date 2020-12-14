@@ -10,7 +10,7 @@ $_lang['ms2_prop_offset'] = 'An offset of resources returned by the criteria to 
 $_lang['ms2_prop_depth'] = 'Integer value indicating depth to search for resources from each parent.';
 $_lang['ms2_prop_sortby'] = 'The field to sort by. For sorting by product fields you need to add prefix "Data.", for example: "&sortby=`Data.price`"';
 $_lang['ms2_prop_sortdir'] = 'The direction to sort by';
-$_lang['ms2_prop_where'] = 'A JSON-style expression of criteria to build any additional where clauses from';
+$_lang['ms2_prop_where'] = 'A JSON-style expression of criteria to build any additional where clauses from.';
 $_lang['ms2_prop_tpl'] = 'The chunk tpl to use for each row.';
 $_lang['ms2_prop_toPlaceholder'] = 'If not empty, the snippet will save output to placeholder with that name, instead of return it to screen.';
 $_lang['ms2_prop_toSeparatePlaceholders'] = 'If set, will assign EACH result to a separate placeholder named by this param suffixed with a sequential number (starting from 0).';
@@ -29,10 +29,12 @@ $_lang['ms2_prop_class'] = 'Name of class for selection. By default, "msProduct"
 $_lang['ms2_prop_tvPrefix'] = 'The prefix for TemplateVar properties, "tv." for example. By default it is empty.';
 $_lang['ms2_prop_outputSeparator'] = 'An optional string to separate each tpl instance.';
 $_lang['ms2_prop_returnIds'] = 'If true, snippet will return comma separated string with ids of results instead of chunks.';
+
 $_lang['ms2_prop_showUnpublished'] = 'Show unpublished goods.';
 $_lang['ms2_prop_showDeleted'] = 'Show deleted goods.';
 $_lang['ms2_prop_showHidden'] = 'Show goods, that hidden in menu.';
 $_lang['ms2_prop_showZeroPrice'] = 'Show goods with zero price.';
+
 $_lang['ms2_prop_tplRow'] = 'Chunk for template one row of query.';
 $_lang['ms2_prop_tplSingle'] = 'Chunk for template single row of query.';
 $_lang['ms2_prop_tplOuter'] = 'Wrapper for template results of snippet work.';
@@ -42,6 +44,7 @@ $_lang['ms2_prop_tplPaymentsOuter'] = 'Chunk for templating of a block of possib
 $_lang['ms2_prop_tplPaymentsRow'] = 'Chunk to process a payment method.';
 $_lang['ms2_prop_tplDeliveriesOuter'] = 'Chunk for templating of a block of possible ways of deliveries.';
 $_lang['ms2_prop_tplDeliveriesRow'] = 'Chunk to process a way of delivery.';
+
 $_lang['ms2_prop_options'] = 'Comma-separated list of options to output.';
 $_lang['ms2_prop_product'] = 'Id of the product. If empty, will used id of the current document.';
 $_lang['ms2_prop_optionSelected'] = 'Name of the active option, for setting attribute "selected"';
@@ -55,5 +58,6 @@ $_lang['ms2_prop_onlyOptions'] = 'Show only this comma-separated list of options
 $_lang['ms2_prop_hideEmpty'] = 'Hide options with empty value.';
 $_lang['ms2_prop_groups'] = 'Show options only by chosen groups (name or id of category separated by comma, "0" means no group).';
 $_lang['ms2_prop_tplValue'] = 'Chunk for templating of one value for multiple options';
+
 $_lang['ms2_prop_userFields'] = 'An associative array of order and user fields in format "order field" => "user field".';
 $_lang['ms2_prop_wrapIfEmpty'] = 'If true, will output the wrapper specified in &tplWrapper even if the output is empty.';

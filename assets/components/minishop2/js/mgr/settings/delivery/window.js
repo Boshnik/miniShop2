@@ -43,7 +43,14 @@ Ext.extend(miniShop2.window.CreateDelivery, miniShop2.window.Default, {
                     id: config.id + '-price'
                 }],
             }]
-
+        }, { 
+            xtype: 'numberfield',
+            fieldLabel: _('ms2_free_delivery_amount'),
+            name: 'free_delivery_amount',
+            description: _('ms2_free_delivery_amount_help'),
+            anchor: '99%',
+            decimalPrecision: 2,
+            id: config.id + '-free-delivery-amount'         
         }, {
             layout: 'column',
             items: [{
@@ -92,7 +99,9 @@ Ext.extend(miniShop2.window.CreateDelivery, miniShop2.window.Default, {
             fieldLabel: _('ms2_logo'),
             name: 'logo',
             anchor: '99%',
-            id: config.id + '-logo'
+            id: config.id + '-logo',
+            triggerClass: 'x-form-image-trigger',
+            allowedFileTypes: config.allowedFileTypes || MODx.config.upload_images
         }, {
             xtype: 'textarea',
             fieldLabel: _('ms2_description'),

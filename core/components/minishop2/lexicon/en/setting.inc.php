@@ -18,6 +18,8 @@ $_lang['setting_ms2_services'] = 'Store services';
 $_lang['setting_ms2_services_desc'] = 'Array with registered classes for cart, order, delivery and payment. Used by third-party extras to load their functionality.';
 $_lang['setting_ms2_plugins'] = 'Store plugins';
 $_lang['setting_ms2_plugins_desc'] = 'Array with registered plugins for extension objects of store model: products, customer profiles, etc.';
+$_lang['setting_ms2_chunks_categories'] = 'Categories for list chunks';
+$_lang['setting_ms2_chunks_categories_desc'] = 'List of category IDs for list chunks by comma separated.';
 
 $_lang['setting_ms2_category_grid_fields'] = 'Fields of the table with goods';
 $_lang['setting_ms2_category_grid_fields_desc'] = 'Comma separated list of visible fields in the table of goods in category.';
@@ -81,6 +83,8 @@ $_lang['setting_ms2_product_id_as_alias_desc'] = 'If true, aliases for friendly 
 
 $_lang['setting_ms2_cart_handler_class'] = 'Cart handler class';
 $_lang['setting_ms2_cart_handler_class_desc'] = 'The name of the class that implements the logic of a cart.';
+$_lang['setting_ms2_cart_context'] = 'Use a single basket for all contexts?';
+$_lang['setting_ms2_cart_context_desc'] = 'If enabled, a common cart is used for all contexts. If disabled, then each context has its own shopping cart.';
 $_lang['setting_ms2_order_handler_class'] = 'Order handler class';
 $_lang['setting_ms2_order_handler_class_desc'] = 'The name of the class that implements the logic of an ordering.';
 $_lang['setting_ms2_order_user_groups'] = 'Groups for registering customers';

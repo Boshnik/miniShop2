@@ -125,21 +125,33 @@ Ext.extend(miniShop2.panel.UpdateCategory, miniShop2.panel.Category, {
             if (item.id == 'modx-resource-tabs') {
                 var tabs = [
                     this.getProducts(config)
-                ];
+                ],
+                pageSettingsTab, accessPermissionsTab;
                 for (var i2 in item.items) {
                     if (!item.items.hasOwnProperty(i2)) {
                         continue;
                     }
                     var tab = item.items[i2];
-                    tabs.push(tab);
-                    // Additional tabs
-                    if (tab.id == 'modx-page-settings') {
-                        tab.items = this.addOptions(config, tab.items);
+                    if (tab.id != 'modx-page-settings' && tab.id != 'modx-resource-access-permissions') {
+                        tabs.push(tab);
+                    } else {
+                        // Get the "Settings" and "Resource Groups" tabs
+                        if (tab.id == 'modx-page-settings') {
+                            // Add "Product Options" inside the "Settings" tab
+                            tab.items = this.addOptions(config, tab.items);
+                            pageSettingsTab = tab;
+                        }
+                        if (tab.id == 'modx-resource-access-permissions') {
+                            accessPermissionsTab = tab;
+                        }
                     }
                 }
                 if (miniShop2.config['show_comments']) {
                     tabs.push(this.getComments(config));
                 }
+                // Move the "Settings" and "Resource Groups" to the end of tabs
+                pageSettingsTab && tabs.push(pageSettingsTab);
+                accessPermissionsTab && tabs.push(accessPermissionsTab);
                 item.items = tabs;
             }
             fields.push(item);
